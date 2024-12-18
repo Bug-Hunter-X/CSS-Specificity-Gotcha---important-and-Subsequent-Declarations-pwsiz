@@ -1,0 +1,22 @@
+The solution involves separating the style declarations or avoiding the use of `!important` where possible.
+
+```css
+/* solution 1: Separate the styles */
+div {
+  font-size: 16px;
+}
+
+.container div {
+  font-size: 18px;
+}
+
+.container .special {
+  font-size: 14px !important;
+}
+
+.container .special {
+  color: blue;
+}
+```
+
+This demonstrates that properly ordering your styles (or ideally avoiding `!important` altogether) will prevent this issue.  However, be aware that if you need !important for other reasons, this approach is necessary.
