@@ -1,0 +1,23 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance:
+
+```css
+div {
+  font-size: 16px;
+}
+
+.container div {
+  font-size: 18px;
+}
+
+.container .special {
+  font-size: 14px !important;
+}
+
+.container .special {
+  color: blue;
+}
+```
+
+The unexpected behavior is that the `color: blue;` declaration might not be applied as expected, even though it is present in the last rule. This is due to the high specificity of the `!important` rule on the font-size.  The browser may incorrectly optimize the style sheet and skip over the subsequent declarations when an `!important` declaration occurs on a different property.
+
+The issue is subtle and might not manifest in all browsers or CSS parsers. The order of declarations and the use of `!important` can create surprising behavior.
